@@ -10,13 +10,23 @@
     <a-scene luzes fog="type: linear; color: #AAA; near: 1; far: 1000;">
         <a-light type="ambient" color="#888"></a-light>
 
+        <a-entity id="jardim" position="10 0 0">
+            <a-plane position="0 -0.01 0" rotation="-90 0 0" width="80" height="80" material="src: assets/grama.jpg; repeat: 100 100;"></a-plane>
+
+            <a-box position="1 0.5 1" depth="0.5" height="1" width="0.5" color="blue"></a-box>
+            <a-cylinder position="2 0.75 2" height="1.5" radius="0.5" color="yellow"></a-cylinder>
+            <a-box position="-1 0.5 -1" depth="0.5" height="1" width="0.5" color="red"></a-box>
+        
+            <a-sphere position="0 0.3 0" radius="0.3" color="#B2B2B2"></a-sphere>
+        </a-entity>
+        
+
         <!-- <a-entity id="chao">
             <a-plane position="0 0 0" rotation="-90 0 0" width="50" height="50" material="src: #piso; normal-map: #piso-normal; normal-texture-repeat: 10 10; roughness: 0.4; metalness: 0" shadow>
             </a-plane>
         </a-entity> -->
 
         <a-assets>
-
             <img crossorigin="anonymous" id="brick" src="assets/parede-interna.jpg" />
             <img crossorigin="anonymous" id="brick" src="assets/parede-interna.jpg" />
             <img crossorigin="anonymous" id="piso" src="assets/piso.jpg" />
@@ -27,11 +37,10 @@
             <a-asset-item id="toilet-paper-model" src="assets/toilet_paper_dispenser.glb"></a-asset-item>
             <a-asset-item id="shower-cabin-model" src="assets/shower_cabin.glb"></a-asset-item>
             <a-asset-item id="sink-model" src="assets/sink.glb"></a-asset-item>
-
-
+            <img crossorigin="anonymous" id="background" src="assets/background.jpg"/>
         </a-assets>
 
-        <a-sky src="#background"></a-sky>
+        <a-sky src ="#background"></a-sky>
 
         <!-- Camera -->
         <a-entity id="camera" position="0 1.6 4" camera look-controls wasd-controls></a-entity>
