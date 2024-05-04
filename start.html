@@ -7,9 +7,8 @@
 </head>
 
 <body>
-
     <a-scene luzes>
-        <a-light id="luzPrincipal" type="point" intensity="1" position="0 50 0" color="#fff"></a-light>
+        <a-light type="ambient" color="#888"></a-light>
 
         <a-assets>
             <!-- wood -->
@@ -20,26 +19,23 @@
                 src="https://cdn.glitch.com/e318dd99-71d2-43c4-b187-33a7c6759c79%2FwoodFloorNormal.jpg?v=1591818442344" />
             <!-- brick -->
             <img crossorigin="anonymous" id="brick"
-                src="https://cdn.glitch.com/da3c70f2-15da-4ad6-b1fb-c32a564dfafc%2Fwhite-brick-wall-texture-background-40999667.jpeg?v=1619008750879" />
+                src="assets/parede-interna.jpg" />
             <!-- brick roughness -->
             <img crossorigin="anonymous" id="brick-roughness"
                 src="https://cdn.glitch.com/e318dd99-71d2-43c4-b187-33a7c6759c79%2Fbrick_roughness.jpg?v=1593160043464" />
-            <!-- tile -->
-            <img crossorigin="anonymous" id="tile"
-                src="https://cdn.glitch.com/e318dd99-71d2-43c4-b187-33a7c6759c79%2FTexturesCom_Pavement_Medieval_512_albedo.jpg?v=1591865660715" />
-            <!-- tile normal -->
-            <img crossorigin="anonymous" id="tile-normal"
-                src="https://cdn.glitch.com/e318dd99-71d2-43c4-b187-33a7c6759c79%2FTexturesCom_Pavement_Medieval_512_normal.jpg?v=1591865668506" />
+            <img crossorigin="anonymous" id="piso" src="assets/piso.jpg" />
+            <img crossorigin="anonymous" id="piso-normal" src="assets/piso-rugosidade.jpg" />
         </a-assets>
 
         <!-- Camera -->
         <a-entity id="camera" position="0 1.6 4" camera look-controls wasd-controls></a-entity>
 
         <!-- Luzes -->
-        <a-light id="luzBanheiro" type="point" intensity="1" position="5 10 -5" color="#fff"></a-light>
-        <a-light id="luzCozinha" type="point" intensity="1" position="-5 10 -5" color="#fff"></a-light>
-        <a-light id="luzQuarto" type="point" intensity="1" position="-5 10 5" color="#fff"></a-light>
-        <a-light id="luzSala" type="point" intensity="1" position="5 10 5" color="#fff"></a-light>
+        <a-entity id="luztreSala" position="0 2.5 0">
+            <a-light id="luzSala" type="point" intensity="1" color="#ccc"></a-light>
+            <!-- Lâmpada visual -->
+            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc" material="emissive: #ccc; emissiveIntensity: 0.5"></a-sphere>
+        </a-entity>
 
 
         <!-- casa -->
@@ -200,8 +196,8 @@
 
             <a-entity id="chao">
                 <a-plane position="0 0 0" rotation="-90 0 0" scale="5 5 1" material="color: white;
-                src: #tile;a
-                normal-map: #tile-normal;
+                src: #piso;a
+                normal-map: #piso-normal;
                 normal-texture-repeat: 2.5 2.5;
                 roughness: 0.4;
                 metalness: 0" shadow>
