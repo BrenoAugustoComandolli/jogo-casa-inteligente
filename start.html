@@ -1,43 +1,167 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="scripts/registro-eventos.js"></script>
 </head>
+
 <body>
+
     <a-scene luzes>
         <a-light id="luzPrincipal" type="point" intensity="1" position="0 50 0" color="#fff"></a-light>
 
+        <a-assets>
+            <!-- wood -->
+            <img crossorigin="anonymous" id="wood"
+                src="https://cdn.glitch.com/e318dd99-71d2-43c4-b187-33a7c6759c79%2FwoodFloor.jpg?v=1591818436031" />
+            <!-- wood normal -->
+            <img crossorigin="anonymous" id="wood-normal"
+                src="https://cdn.glitch.com/e318dd99-71d2-43c4-b187-33a7c6759c79%2FwoodFloorNormal.jpg?v=1591818442344" />
+            <!-- brick -->
+            <img crossorigin="anonymous" id="brick"
+                src="https://cdn.glitch.com/da3c70f2-15da-4ad6-b1fb-c32a564dfafc%2Fwhite-brick-wall-texture-background-40999667.jpeg?v=1619008750879" />
+            <!-- brick roughness -->
+            <img crossorigin="anonymous" id="brick-roughness"
+                src="https://cdn.glitch.com/e318dd99-71d2-43c4-b187-33a7c6759c79%2Fbrick_roughness.jpg?v=1593160043464" />
+            <!-- tile -->
+            <img crossorigin="anonymous" id="tile"
+                src="https://cdn.glitch.com/e318dd99-71d2-43c4-b187-33a7c6759c79%2FTexturesCom_Pavement_Medieval_512_albedo.jpg?v=1591865660715" />
+            <!-- tile normal -->
+            <img crossorigin="anonymous" id="tile-normal"
+                src="https://cdn.glitch.com/e318dd99-71d2-43c4-b187-33a7c6759c79%2FTexturesCom_Pavement_Medieval_512_normal.jpg?v=1591865668506" />
+        </a-assets>
+
         <!-- Camera -->
         <a-entity id="camera" position="0 1.6 4" camera look-controls wasd-controls></a-entity>
-        
+
         <!-- Luzes -->
         <a-light id="luzBanheiro" type="point" intensity="1" position="5 10 -5" color="#fff"></a-light>
         <a-light id="luzCozinha" type="point" intensity="1" position="-5 10 -5" color="#fff"></a-light>
         <a-light id="luzQuarto" type="point" intensity="1" position="-5 10 5" color="#fff"></a-light>
         <a-light id="luzSala" type="point" intensity="1" position="5 10 5" color="#fff"></a-light>
-        
-         <!-- Estrutura da Casa -->
-        <a-box position="0 0 0" depth="50" height="20" width="50" color="#A0522D"></a-box>
 
-        <a-plane position="0 0 0" rotation="-90 0 0" width="100" height="100" color="#A0522D" static-body></a-plane>
-        
+
+        <!-- casa -->
+
+        <a-entity id="casa">
+
+            <!-- estrutura externa (paredes externas) -->
+            <!-- <a-entity id="estrutura">
+                <a-box position="0 0 0" depth="50" height="20" width="50" color="#A0522D"></a-box>
+            </a-entity> -->
+
+            <!-- parede -->
+            <a-entity class="parede" position="0 1.5 2.5" rotation="0 0 0">
+                <a-box scale="5 3 0.1" shadow material="src: #brick;
+                      repeat: 2.5 2;
+                      roughness-map: #brick-roughness;
+                      roughnessTextureRepeat: 2.5 2;
+                      roughness: 0.9;
+                      metalness: 0">
+                </a-box>
+            </a-entity>
+
+            <!-- parede -->
+            <a-entity class="parede" position="2.5 1.5 0" rotation="0 90 0">
+                <a-box scale="5 3 0.1" shadow material="src: #brick;
+                            repeat: 2.5 2;
+                            roughness-map: #brick-roughness;
+                            roughnessTextureRepeat: 2.5 2;
+                            roughness: 0.9;
+                            metalness: 0">
+                </a-box>
+            </a-entity>
+
+            <!-- parede -->
+            <a-entity class="parede" position="0 1.5 -2.5" rotation="0 0 0">
+                <a-box scale="5 3 0.1" shadow material="src: #brick;
+                            repeat: 2.5 2;
+                            roughness-map: #brick-roughness;
+                            roughnessTextureRepeat: 2.5 2;
+                            roughness: 0.9;
+                            metalness: 0">
+                </a-box>
+            </a-entity>
+
+            <!-- parede com porta -->
+            <a-entity class="parede-com-porta" shadow>
+                <a-box position="-2.5 2.5 0" rotation="0 90 0" scale="5 1 0.1" material="src: #brick;
+                      repeat: 2.5 0.5; 
+                      roughness-map: #brick-roughness; 
+                      roughnessTextureRepeat: 2.5 0.5; 
+                      roughness: 0.9; 
+                      metalness: 0">
+                </a-box>
+                <a-box position="-2.5 1.5 0.75" rotation="0 90 0" scale="3.5 1 0.1" material="src: #brick; 
+                      repeat: 2.5 0.5; 
+                      roughness-map: #brick-roughness; 
+                      roughnessTextureRepeat: 2.5 0.5; 
+                      roughness: 0.9; 
+                      metalness: 0">
+                </a-box>
+                <a-box position="-2.5 0.5 0.75" rotation="0 90 0" scale="3.5 1 0.1" material="src: #brick; 
+                      repeat: 2.5 0.5; 
+                      roughness-map: #brick-roughness; 
+                      roughnessTextureRepeat: 2.5 0.5; 
+                      roughness: 0.9; 
+                      metalness: 0">
+                </a-box>
+                <a-box position="-2.5 1.5 -2.25" rotation="0 90 0" scale="0.5 1 0.1" material="src: #brick; 
+                      repeat: 0.5 0.5; 
+                      roughness-map: #brick-roughness; 
+                      roughnessTextureRepeat: 2.5 0.5; 
+                      roughness: 0.9; 
+                      metalness: 0">
+                </a-box>
+                <a-box position="-2.5 0.5 -2.25" rotation="0 90 0" scale="0.5 1 0.1" material="src: #brick; 
+                      repeat: 0.5 0.5; 
+                      roughness-map: #brick-roughness; 
+                      roughnessTextureRepeat: 2.5 0.5; 
+                      roughness: 0.9; 
+                      metalness: 0">
+                </a-box>
+            </a-entity>
+
+            <!-- teto -->
+            <!-- <a-entity class="teto">
+                <a-entity position="0 3.75 0" rotation="0 45 0" scale="3.5 1.53 3.5" material="color: white;
+                          src: #wood;
+                          repeat: 2.5 2.5;
+                          roughness: 0.4;
+                          normal-map: #wood-normal;
+                          normalTextureRepeat: 5 5;
+                          side: front" shadow geometry="primitive: cone;
+                          openEnded: false;
+                          segmentsRadial: 4"></a-entity>
+            </a-entity> -->
+            <a-entity geometry="primitive: cone; radiusTop: 0; height: 3; segmentsRadial: 4; segmentsHeight: 2" scale="3.5 1.53 3.5" position="0 5.30s 0" rotation="0 45 0" material="src: url(assets/tijolo.jpg); repeat: 4 4;" material="side: double;"></a-entity>
+
+            <a-entity id="chao">
+                <a-plane position="0 0 0" rotation="-90 0 0" scale="5 5 1" material="color: white;
+                src: #tile;a
+                normal-map: #tile-normal;
+                normal-texture-repeat: 2.5 2.5;
+                roughness: 0.4;
+                metalness: 0" shadow>
+                </a-plane>
+            </a-entity>
+        </a-entity>
+
         <!-- Divisórias -->
-        <a-box position="0 0 0" depth="50" height="20" width="0.5" color="#D2B48C"></a-box>
-        <a-box position="0 0 0" depth="0.5" height="20" width="50" color="#D2B48C"></a-box>
-
-        <a-entity geometry="primitive: cone; radiusBottom: 40; radiusTop: 0; height: 15; segmentsRadial: 4; segmentsHeight: 2" position="0 18 0" rotation="0 45 0" material="src: url(assets/tijolo.jpg); repeat: 4 4;" material="side: double;"></a-entity>
-        <a-plane position="0 17 0" rotation="-60 0 0" width="50" height="50" material="src: url(assets/forro.jpg); repeat: 10 10; side:double;"></a-plane>
+        <!-- <a-box position="0 0 0" depth="50" height="20" width="0.5" color="#D2B48C"></a-box> -->
+        <!-- <a-box position="0 0 0" depth="0.5" height="20" width="50" color="#D2B48C"></a-box> -->
 
         <!-- Comodos e Mobília -->
         <!-- Banheiro -->
-        <a-box position="7.5 0 -18.75" depth="12.5" height="2" width="12.5" color="#B0C4DE"></a-box>
+        <!-- <a-box position="7.5 0 -18.75" depth="12.5" height="2" width="12.5" color="#B0C4DE"></a-box> -->
         <!-- Cozinha -->
-        <a-box position="-7.5 0 -18.75" depth="12.5" height="2" width="12.5" color="#A9A9A9"></a-box>
+        <!-- <a-box position="-7.5 0 -18.75" depth="12.5" height="2" width="12.5" color="#A9A9A9"></a-box> -->
         <!-- Quarto -->
-        <a-box position="-7.5 0 18.75" depth="12.5" height="2" width="12.5" color="#F5DEB3"></a-box>
+        <!-- <a-box position="-7.5 0 18.75" depth="12.5" height="2" width="12.5" color="#F5DEB3"></a-box> -->
         <!-- Sala -->
-        <a-box position="7.5 0 18.75" depth="12.5" height="2" width="12.5" color="#FFDEAD"></a-box>
+        <!-- <a-box position="7.5 0 18.75" depth="12.5" height="2" width="12.5" color="#FFDEAD"></a-box> -->
     </a-scene>
 </body>
+
 </html>
