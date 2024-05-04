@@ -39,6 +39,11 @@
             <a-asset-item id="shower-cabin-model" src="assets/shower_cabin.glb"></a-asset-item>
             <a-asset-item id="sink-model" src="assets/sink.glb"></a-asset-item>
             <a-asset-item id="kitchen-model" src="assets/kitchen_design_set_v.001.glb"></a-asset-item>
+            <a-asset-item id="door-model" src="assets/white_wooden_door.glb"></a-asset-item>
+            <a-asset-item id="kitchen-table-model" src="assets/modern_dining_table.glb"></a-asset-item>
+            <a-asset-item id="bathroom-rug-model" src="assets/bathroom-rug.glb"></a-asset-item>
+            <a-asset-item id="rug-model" src="assets/rug.glb"></a-asset-item>
+
             <img crossorigin="anonymous" id="background" src="assets/background.jpg" />
         </a-assets>
 
@@ -50,32 +55,38 @@
         <!-- Luzes -->
         <a-entity id="luztreQuartoMenor" position="0 2.5 0">
             <a-light id="luzQuartoMenor" type="point" intensity="0" color="#ccc" castShadow="true"></a-light>
-            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc" material="emissive: #ccc; emissiveIntensity: 0.2"></a-sphere>
+            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc"
+                material="emissive: #ccc; emissiveIntensity: 0.2"></a-sphere>
         </a-entity>
 
         <a-entity id="luztreQuartoMaior" position="5 2.5 0">
             <a-light id="luzQuartoMaior" type="point" intensity="0" color="#ccc" castShadow="true"></a-light>
-            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc" material="emissive: #ccc; emissiveIntensity: 0.2"></a-sphere>
+            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc"
+                material="emissive: #ccc; emissiveIntensity: 0.2"></a-sphere>
         </a-entity>
 
         <a-entity id="luztreBanheiro" position="1 2.5 -3.5">
             <a-light id="luzBanheiro" type="point" intensity="0" color="#ccc" castShadow="true"></a-light>
-            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc" material="emissive: #ccc; emissiveIntensity: 0.2"></a-sphere>
+            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc"
+                material="emissive: #ccc; emissiveIntensity: 0.2"></a-sphere>
         </a-entity>
 
         <a-entity id="luztreCozinha" position="-5 2.5 -5">
             <a-light id="luzCozinha" type="point" intensity="0" color="#ccc" castShadow="true"></a-light>
-            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc" material="emissive: #ccc; emissiveIntensity: 0.2"></a-sphere>
+            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc"
+                material="emissive: #ccc; emissiveIntensity: 0.2"></a-sphere>
         </a-entity>
 
         <a-entity id="luztreEntrada" position="-5 2.5 0">
             <a-light id="luzEntrada" type="point" intensity="0" color="#ccc" castShadow="true"></a-light>
-            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc" material="emissive: #ccc; emissiveIntensity: 0.2"></a-sphere>
+            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc"
+                material="emissive: #ccc; emissiveIntensity: 0.2"></a-sphere>
         </a-entity>
 
         <a-entity id="luztreJardim" position="8 2.5 3">
             <a-light id="luzJardim" type="point" intensity="0" color="#ccc" castShadow="true"></a-light>
-            <a-plane position="0 0.49 0" height="0.2" width="0.2" rotation="90 0 0" color="#ccc" material="emissive: #ccc; emissiveIntensity: 0.2"></a-plane>
+            <a-plane position="0 0.49 0" height="0.2" width="0.2" rotation="90 0 0" color="#ccc"
+                material="emissive: #ccc; emissiveIntensity: 0.2"></a-plane>
         </a-entity>
 
         <!-- casa -->
@@ -369,7 +380,7 @@
                       roughness-map: #brick-roughness; 
                       roughnessTextureRepeat: 2.5 0.5; 
                       roughness: 0.9; 
-                      metalness: 0"> 
+                      metalness: 0">
                 </a-box>
 
                 <!-- pisos -->
@@ -425,18 +436,34 @@
                 <!-- moveis -->
 
                 <!-- banheiro -->
-                <a-entity class="toilet asset" scale="1.5 1.5 1.5" rotation="0 0 0" position="1 0 -4.45"
+                <a-entity class="toilet-asset" scale="1.5 1.5 1.5" rotation="0 0 0" position="1 0 -4.45"
                     gltf-model="#toilet-model"> </a-entity>
-                <a-entity class="toilet asset" scale="1.5 1.5 1.5" rotation="0 0 0" position="0.5 0.5 -4.45"
+                <a-entity class="toilet-asset" scale="1.5 1.5 1.5" rotation="0 0 0" position="0.5 0.5 -4.45"
                     gltf-model="#toilet-paper-model"> </a-entity>
-                <a-entity class="shower asset" scale="1 1 1" rotation="0 -90 0" position="1.9 0.5 -4.15"
+                <a-entity class="shower-asset" scale="1 1 1" rotation="0 -90 0" position="1.9 0.5 -4.15"
                     gltf-model="#shower-cabin-model"> </a-entity>
-                <a-entity class="sink asset" scale="1.1 1.2 1.1" rotation="0 90 0" position="0 0 -2.85"
+                <a-entity class="sink-asset" scale="1.1 1.2 1.1" rotation="0 90 0" position="0 0 -2.85"
                     gltf-model="#sink-model"> </a-entity>
+                <a-entity class="door-asset" scale="0.4 0.40 0.4" rotation="0 -90 0" position="-0.43 0 -3.55"
+                    gltf-model="#door-model"> </a-entity>
+                <a-entity class="rug-asset" scale="0.5 0.5 0.5" rotation="0 90 0" position="-7 0 -1.5" gltf-model="#rug-model">
+                </a-entity>
 
-                <!-- cozinha -->
-                <a-entity class="kitchen asset" scale="0.028 0.028 0.028" rotation="0 90 0" position="-5.65 0 3.9"
+                <!-- cozinha/entrada -->
+                <a-entity class="kitchen-asset" scale="0.028 0.028 0.028" rotation="0 90 0" position="-5.65 0 3.9"
                     gltf-model="#kitchen-model"> </a-entity>
+                <a-entity class="door-asset" scale="0.4 0.40 0.4" rotation="0 90 0" position="-7.55 0 -1.5"
+                    gltf-model="#door-model"> </a-entity>
+                <a-entity class="bathroom-rug-asset" scale="0.015 0.015 0.015" rotation="0 -90 0" position="1 0 -3.1"
+                    gltf-model="#bathroom-rug-model"> </a-entity>
+
+                <!-- quarto principal -->
+                <a-entity class="door-asset" scale="0.5 0.40 0.5" rotation="0 0 0" position="6.35 0 -2.58"
+                    gltf-model="#door-model"> </a-entity>
+
+                <!-- quarto secundario -->
+                <a-entity class="door-asset" scale="0.4 0.40 0.4" rotation="0 90 0" position="-2.55 0 -1.5"
+                    gltf-model="#door-model"> </a-entity>
 
 
             </a-entity>
