@@ -7,12 +7,12 @@
 </head>
 
 <body>
-    <a-scene luzes fog="type: linear; color: #AAA; near: 1; far: 1000;">
+    <a-scene luzes fog="type: linear; color: #AAA; near: 1; far: 1000;" shadow="type: pcfsoft">
         <a-light type="ambient" color="#888"></a-light>
 
         <a-entity id="jardim" position="10 0 0">
             <a-plane position="0 -0.01 0" rotation="-90 0 0" width="80" height="80"
-                material="src: assets/grama.jpg; repeat: 100 100;"></a-plane>
+                material="src: assets/grama.jpg; repeat: 100 100; roughness: 1"></a-plane>
 
             <a-box position="1 0.5 1" depth="0.5" height="1" width="0.5" color="blue"></a-box>
             <a-cylinder position="2 0.75 2" height="1.5" radius="0.5" color="yellow"></a-cylinder>
@@ -23,7 +23,7 @@
 
 
         <!-- <a-entity id="chao">
-            <a-plane position="0 0 0" rotation="-90 0 0" width="50" height="50" material="src: #piso; normal-map: #piso-normal; normal-texture-repeat: 10 10; roughness: 0.4; metalness: 0" shadow>
+            <a-plane position="0 0 0" rotation="-90 0 0" width="50" height="50" material="src: #piso; normal-map: #piso-normal; normal-texture-repeat: 10 10; roughness: 1; metalness: 0" shadow>
             </a-plane>
         </a-entity> -->
 
@@ -49,33 +49,33 @@
 
         <!-- Luzes -->
         <a-entity id="luztreQuartoMenor" position="0 2.5 0">
-            <a-light id="luzQuartoMenor" type="point" intensity="0" color="#ccc"></a-light>
-            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc" material="emissive: #ccc; emissiveIntensity: 0.5"></a-sphere>
+            <a-light id="luzQuartoMenor" type="point" intensity="0" color="#ccc" castShadow="true"></a-light>
+            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc" material="emissive: #ccc; emissiveIntensity: 0.2"></a-sphere>
         </a-entity>
 
         <a-entity id="luztreQuartoMaior" position="5 2.5 0">
-            <a-light id="luzQuartoMaior" type="point" intensity="0" color="#ccc"></a-light>
-            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc" material="emissive: #ccc; emissiveIntensity: 0.5"></a-sphere>
+            <a-light id="luzQuartoMaior" type="point" intensity="0" color="#ccc" castShadow="true"></a-light>
+            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc" material="emissive: #ccc; emissiveIntensity: 0.2"></a-sphere>
         </a-entity>
 
         <a-entity id="luztreBanheiro" position="1 2.5 -3.5">
-            <a-light id="luzBanheiro" type="point" intensity="0" color="#ccc"></a-light>
-            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc" material="emissive: #ccc; emissiveIntensity: 0.5"></a-sphere>
+            <a-light id="luzBanheiro" type="point" intensity="0" color="#ccc" castShadow="true"></a-light>
+            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc" material="emissive: #ccc; emissiveIntensity: 0.2"></a-sphere>
         </a-entity>
 
         <a-entity id="luztreCozinha" position="-5 2.5 -5">
-            <a-light id="luzCozinha" type="point" intensity="0" color="#ccc"></a-light>
-            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc" material="emissive: #ccc; emissiveIntensity: 0.5"></a-sphere>
+            <a-light id="luzCozinha" type="point" intensity="0" color="#ccc" castShadow="true"></a-light>
+            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc" material="emissive: #ccc; emissiveIntensity: 0.2"></a-sphere>
         </a-entity>
 
         <a-entity id="luztreEntrada" position="-5 2.5 0">
-            <a-light id="luzEntrada" type="point" intensity="0" color="#ccc"></a-light>
-            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc" material="emissive: #ccc; emissiveIntensity: 0.5"></a-sphere>
+            <a-light id="luzEntrada" type="point" intensity="0" color="#ccc" castShadow="true"></a-light>
+            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc" material="emissive: #ccc; emissiveIntensity: 0.2"></a-sphere>
         </a-entity>
 
         <a-entity id="luztreJardim" position="8 2.5 3">
-            <a-light id="luzJardim" type="point" intensity="0" color="#ccc"></a-light>
-            <a-plane position="0 0.49 0" height="0.2" width="0.2" rotation="90 0 0" color="#ccc" material="emissive: #ccc; emissiveIntensity: 0.5"></a-plane>
+            <a-light id="luzJardim" type="point" intensity="0" color="#ccc" castShadow="true"></a-light>
+            <a-plane position="0 0.49 0" height="0.2" width="0.2" rotation="90 0 0" color="#ccc" material="emissive: #ccc; emissiveIntensity: 0.2"></a-plane>
         </a-entity>
 
         <!-- casa -->
@@ -369,7 +369,7 @@
                       roughness-map: #brick-roughness; 
                       roughnessTextureRepeat: 2.5 0.5; 
                       roughness: 0.9; 
-                      metalness: 0">
+                      metalness: 0"> 
                 </a-box>
 
                 <!-- pisos -->
@@ -377,7 +377,7 @@
                     <a-plane position="0 0 0" rotation="-90 0 0" scale="5 5 1" material="color: white;
                     src: #piso;
                     normal-texture-repeat: 2.5 2.5;
-                    roughness: 0.4;
+                    roughness: 1;
                     metalness: 0" shadow>
                     </a-plane>
                 </a-entity>
@@ -385,7 +385,7 @@
                     <a-plane position="5 0 0" rotation="-90 0 0" scale="5 5 1" material="color: white;
                     src: #piso;
                     normal-texture-repeat: 2.5 2.5;
-                    roughness: 0.4;
+                    roughness: 1;
                     metalness: 0" shadow>
                     </a-plane>
                 </a-entity>
@@ -393,7 +393,7 @@
                     <a-plane position="5 0 -5" rotation="-90 0 0" scale="5 5 1" material="color: white;
                     src: #piso;
                     normal-texture-repeat: 2.5 2.5;
-                    roughness: 0.4;
+                    roughness: 1;
                     metalness: 0" shadow>
                     </a-plane>
                 </a-entity>
@@ -401,7 +401,7 @@
                     <a-plane position="0 0 -5" rotation="-90 0 0" scale="5 5 1" material="color: white;
                     src: #piso;
                     normal-texture-repeat: 2.5 2.5;
-                    roughness: 0.4;
+                    roughness: 1;
                     metalness: 0" shadow>
                     </a-plane>
                 </a-entity>
@@ -409,7 +409,7 @@
                     <a-plane position="-5 0 0" rotation="-90 0 0" scale="5 5 1" material="color: white;
                     src: #piso;
                     normal-texture-repeat: 2.5 2.5;
-                    roughness: 0.4;
+                    roughness: 1;
                     metalness: 0" shadow>
                     </a-plane>
                 </a-entity>
@@ -417,7 +417,7 @@
                     <a-plane position="-5 0 -5" rotation="-90 0 0" scale="5 5 1" material="color: white;
                     src: #piso;
                     normal-texture-repeat: 2.5 2.5;
-                    roughness: 0.4;
+                    roughness: 1;
                     metalness: 0" shadow>
                     </a-plane>
                 </a-entity>
@@ -442,9 +442,9 @@
             </a-entity>
 
             <a-plane position="0 2.99 -2.5" rotation="90 0 0" width="15" height="10"
-                material="src: #forro; repeat: 10 10; metalness:0.1; roughness:0.9; side: double;"></a-plane>
+                material="src: #forro; repeat: 10 10; metalness:0.1; roughness: 1; side: double;"></a-plane>
             <a-plane position="0 3 -2.5" rotation="90 0 0" width="18" height="12"
-                material="src: #eternit; repeat: 10 10; metalness:0.1; roughness:0.9; side: double;"></a-plane>
+                material="src: #eternit; repeat: 10 10; metalness:0.1; roughness: 1; side: double;"></a-plane>
 
         </a-entity>
     </a-scene>
