@@ -3,27 +3,35 @@ AFRAME.registerComponent('luzes', {
     alternarLuz: alternarLuz
 });
 
+const luzQuartoMenor = 'luzQuartoMenor'
+const luzQuartoMaior = 'luzQuartoMaior'
 const luzBanheiro = 'luzBanheiro'
 const luzCozinha = 'luzCozinha'
-const luzQuarto = 'luzQuarto'
-const luzSala = 'luzSala'
+const luzEntrada = 'luzEntrada'
+const luzJardim = 'luzJardim'
 
 function eventosTeclado() {
     document.addEventListener('keydown', (e) => {
         switch (e.key) {
             case '1':
-                this.alternarLuz(luzBanheiro);
+                this.alternarLuz(luzQuartoMenor);
                 break;
             case '2':
-                this.alternarLuz(luzCozinha);
+                this.alternarLuz(luzQuartoMaior);
                 break;
             case '3':
-                this.alternarLuz(luzQuarto);
+                this.alternarLuz(luzBanheiro);
                 break;
             case '4':
-                this.alternarLuz(luzSala);
+                this.alternarLuz(luzCozinha);
                 break;
-        }
+            case '5':
+                this.alternarLuz(luzEntrada);
+                break;
+            case '6':
+                this.alternarLuz(luzJardim);
+                break;
+        } 
     });
 }
 

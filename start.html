@@ -3,7 +3,7 @@
 
 <head>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="scripts/registro-eventos.js"></script>
+    <script src="scripts/luzes-eventos.js"></script>
 </head>
 
 <body>
@@ -46,11 +46,34 @@
         <a-entity id="camera" position="0 1.6 4" camera look-controls wasd-controls></a-entity>
 
         <!-- Luzes -->
-        <a-entity id="luztreSala" position="0 2.5 0">
-            <a-light id="luzSala" type="point" intensity="1" color="#ccc"></a-light>
-            <!-- Lâmpada visual -->
-            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc"
-                material="emissive: #ccc; emissiveIntensity: 0.5"></a-sphere>
+        <a-entity id="luztreQuartoMenor" position="0 2.5 0">
+            <a-light id="luzQuartoMenor" type="point" intensity="0" color="#ccc"></a-light>
+            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc" material="emissive: #ccc; emissiveIntensity: 0.5"></a-sphere>
+        </a-entity>
+
+        <a-entity id="luztreQuartoMaior" position="5 2.5 0">
+            <a-light id="luzQuartoMaior" type="point" intensity="0" color="#ccc"></a-light>
+            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc" material="emissive: #ccc; emissiveIntensity: 0.5"></a-sphere>
+        </a-entity>
+
+        <a-entity id="luztreBanheiro" position="1 2.5 -3.5">
+            <a-light id="luzBanheiro" type="point" intensity="0" color="#ccc"></a-light>
+            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc" material="emissive: #ccc; emissiveIntensity: 0.5"></a-sphere>
+        </a-entity>
+
+        <a-entity id="luztreCozinha" position="-5 2.5 -5">
+            <a-light id="luzCozinha" type="point" intensity="0" color="#ccc"></a-light>
+            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc" material="emissive: #ccc; emissiveIntensity: 0.5"></a-sphere>
+        </a-entity>
+
+        <a-entity id="luztreEntrada" position="-5 2.5 0">
+            <a-light id="luzEntrada" type="point" intensity="0" color="#ccc"></a-light>
+            <a-sphere position="0 0.5 0" radius="0.25" color="#ccc" material="emissive: #ccc; emissiveIntensity: 0.5"></a-sphere>
+        </a-entity>
+
+        <a-entity id="luztreJardim" position="8 2.5 3">
+            <a-light id="luzJardim" type="point" intensity="0" color="#ccc"></a-light>
+            <a-plane position="0 0.49 0" height="0.2" width="0.2" rotation="90 0 0" color="#ccc" material="emissive: #ccc; emissiveIntensity: 0.5"></a-plane>
         </a-entity>
 
         <!-- casa -->
