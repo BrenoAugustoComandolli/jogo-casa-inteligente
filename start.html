@@ -10,28 +10,18 @@
     <a-scene luzes fog="type: linear; color: #AAA; near: 1; far: 1000;">
         <a-light type="ambient" color="#888"></a-light>
 
-        <a-entity id="chao">
+        <!-- <a-entity id="chao">
             <a-plane position="0 0 0" rotation="-90 0 0" width="50" height="50" material="src: #piso; normal-map: #piso-normal; normal-texture-repeat: 10 10; roughness: 0.4; metalness: 0" shadow>
             </a-plane>
-        </a-entity>
+        </a-entity> -->
         
 
         <a-assets>
-            <!-- wood -->
-            <img crossorigin="anonymous" id="wood"
-                src="https://cdn.glitch.com/e318dd99-71d2-43c4-b187-33a7c6759c79%2FwoodFloor.jpg?v=1591818436031" />
-            <!-- wood normal -->
-            <img crossorigin="anonymous" id="wood-normal"
-                src="https://cdn.glitch.com/e318dd99-71d2-43c4-b187-33a7c6759c79%2FwoodFloorNormal.jpg?v=1591818442344" />
-            <!-- brick -->
+        
             <img crossorigin="anonymous" id="brick"
                 src="assets/parede-interna.jpg" />
-            <!-- brick roughness -->
-            <img crossorigin="anonymous" id="brick-roughness"
-                src="https://cdn.glitch.com/e318dd99-71d2-43c4-b187-33a7c6759c79%2Fbrick_roughness.jpg?v=1593160043464" />
             <img crossorigin="anonymous" id="piso" src="assets/piso.jpg" />
             <img crossorigin="anonymous" id="piso-normal" src="assets/piso-rugosidade.jpg" />
-            <img crossorigin="anonymous" id="background" src="https://cdn.glitch.com/da3c70f2-15da-4ad6-b1fb-c32a564dfafc%2Fgreen-hills-over-town.jpg?v=1618930227685"/>
         </a-assets>
 
         <a-sky src="#background"></a-sky>
@@ -340,34 +330,61 @@
                       roughness: 0.9; 
                       metalness: 0">
                 </a-box>
+
+                <!-- pisos -->
+                <a-entity id="chao">
+                    <a-plane position="0 0 0" rotation="-90 0 0" scale="5 5 1" material="color: white;
+                    src: #piso;
+                    normal-texture-repeat: 2.5 2.5;
+                    roughness: 0.4;
+                    metalness: 0" shadow>
+                    </a-plane>
+                </a-entity>
+                <a-entity id="chao">
+                    <a-plane position="5 0 0" rotation="-90 0 0" scale="5 5 1" material="color: white;
+                    src: #piso;
+                    normal-texture-repeat: 2.5 2.5;
+                    roughness: 0.4;
+                    metalness: 0" shadow>
+                    </a-plane>
+                </a-entity>
+                <a-entity id="chao">
+                    <a-plane position="5 0 -5" rotation="-90 0 0" scale="5 5 1" material="color: white;
+                    src: #piso;
+                    normal-texture-repeat: 2.5 2.5;
+                    roughness: 0.4;
+                    metalness: 0" shadow>
+                    </a-plane>
+                </a-entity>
+                <a-entity id="chao">
+                    <a-plane position="0 0 -5" rotation="-90 0 0" scale="5 5 1" material="color: white;
+                    src: #piso;
+                    normal-texture-repeat: 2.5 2.5;
+                    roughness: 0.4;
+                    metalness: 0" shadow>
+                    </a-plane>
+                </a-entity>
+                <a-entity id="chao">
+                    <a-plane position="-5 0 0" rotation="-90 0 0" scale="5 5 1" material="color: white;
+                    src: #piso;
+                    normal-texture-repeat: 2.5 2.5;
+                    roughness: 0.4;
+                    metalness: 0" shadow>
+                    </a-plane>
+                </a-entity>
+                <a-entity id="chao">
+                    <a-plane position="-5 0 -5" rotation="-90 0 0" scale="5 5 1" material="color: white;
+                    src: #piso;
+                    normal-texture-repeat: 2.5 2.5;
+                    roughness: 0.4;
+                    metalness: 0" shadow>
+                    </a-plane>
+                </a-entity>--
             </a-entity>
         
             <a-entity geometry="primitive: cone; radiusTop: 0; height: 3; segmentsRadial: 4; segmentsHeight: 2" scale="3.5 1.53 3.5" position="0 5.30s 0" rotation="0 45 0" material="src: url(assets/tijolo.jpg); repeat: 4 4;" material="side: double;"></a-entity>
-
-            <a-entity id="chao">
-                <a-plane position="0 0 0" rotation="-90 0 0" scale="5 5 1" material="color: white;
-                src: #piso;a
-                normal-map: #piso-normal;
-                normal-texture-repeat: 2.5 2.5;
-                roughness: 0.4;
-                metalness: 0" shadow>
-                </a-plane>
-            </a-entity>
+            
         </a-entity>
-
-        <!-- Divisórias -->
-        <!-- <a-box position="0 0 0" depth="50" height="20" width="0.5" color="#D2B48C"></a-box> -->
-        <!-- <a-box position="0 0 0" depth="0.5" height="20" width="50" color="#D2B48C"></a-box> -->
-
-        <!-- Comodos e Mobília -->
-        <!-- Banheiro -->
-        <!-- <a-box position="7.5 0 -18.75" depth="12.5" height="2" width="12.5" color="#B0C4DE"></a-box> -->
-        <!-- Cozinha -->
-        <!-- <a-box position="-7.5 0 -18.75" depth="12.5" height="2" width="12.5" color="#A9A9A9"></a-box> -->
-        <!-- Quarto -->
-        <!-- <a-box position="-7.5 0 18.75" depth="12.5" height="2" width="12.5" color="#F5DEB3"></a-box> -->
-        <!-- Sala -->
-        <!-- <a-box position="7.5 0 18.75" depth="12.5" height="2" width="12.5" color="#FFDEAD"></a-box> -->
     </a-scene>
 </body>
 
