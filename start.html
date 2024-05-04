@@ -5,15 +5,15 @@
     <script src="scripts/registro-eventos.js"></script>
 </head>
 <body>
-    <a-scene light-switch>
+    <a-scene luzes>
         <!-- Camera -->
         <a-entity id="camera" position="0 1.6 4" camera look-controls wasd-controls></a-entity>
         
         <!-- Luzes -->
-        <a-light id="luz1" type="point" intensity="1" position="5 10 -5" color="#fff"></a-light>
-        <a-light id="luz2" type="point" intensity="1" position="-5 10 -5" color="#fff"></a-light>
-        <a-light id="luz3" type="point" intensity="1" position="-5 10 5" color="#fff"></a-light>
-        <a-light id="luz4" type="point" intensity="1" position="5 10 5" color="#fff"></a-light>
+        <a-light id="luzBanheiro" type="point" intensity="1" position="5 10 -5" color="#fff"></a-light>
+        <a-light id="luzCozinha" type="point" intensity="1" position="-5 10 -5" color="#fff"></a-light>
+        <a-light id="luzQuarto" type="point" intensity="1" position="-5 10 5" color="#fff"></a-light>
+        <a-light id="luzSala" type="point" intensity="1" position="5 10 5" color="#fff"></a-light>
         
         <!-- Estrutura da Casa -->
         <a-box position="0 0 0" depth="50" height="20" width="50" color="#A0522D"></a-box>

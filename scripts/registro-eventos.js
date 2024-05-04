@@ -1,26 +1,33 @@
-AFRAME.registerComponent('light-switch', {
-    init: observaEventosTeclado,
-    toggleLight: function (id) {
-        var light = document.getElementById(id);
-        light.setAttribute('light', 'intensity', light.getAttribute('light').intensity > 0 ? 0 : 1);
-    }
+AFRAME.registerComponent('luzes', {
+    init: eventosTeclado,
+    alternarLuz: alternarLuz
 });
 
-function observaEventosTeclado() {
+const luzBanheiro = 'luzBanheiro'
+const luzCozinha = 'luzCozinha'
+const luzQuarto = 'luzQuarto'
+const luzSala = 'luzSala'
+
+function eventosTeclado() {
     document.addEventListener('keydown', (e) => {
         switch (e.key) {
             case '1':
-                this.toggleLight('luz1');
+                this.alternarLuz(luzBanheiro);
                 break;
             case '2':
-                this.toggleLight('luz2');
+                this.alternarLuz(luzCozinha);
                 break;
             case '3':
-                this.toggleLight('luz3');
+                this.alternarLuz(luzQuarto);
                 break;
             case '4':
-                this.toggleLight('luz4');
+                this.alternarLuz(luzSala);
                 break;
         }
     });
+}
+
+function alternarLuz(id) {
+    var luz = document.getElementById(id);
+    luz.setAttribute('light', 'intensity', luz.getAttribute('light').intensity > 0 ? 0 : 1);
 }
