@@ -7,8 +7,14 @@
 </head>
 
 <body>
-    <a-scene luzes>
+    <a-scene luzes fog="type: linear; color: #AAA; near: 1; far: 1000;">
         <a-light type="ambient" color="#888"></a-light>
+
+        <a-entity id="chao">
+            <a-plane position="0 0 0" rotation="-90 0 0" width="50" height="50" material="src: #piso; normal-map: #piso-normal; normal-texture-repeat: 10 10; roughness: 0.4; metalness: 0" shadow>
+            </a-plane>
+        </a-entity>
+        
 
         <a-assets>
             <!-- wood -->
@@ -25,7 +31,10 @@
                 src="https://cdn.glitch.com/e318dd99-71d2-43c4-b187-33a7c6759c79%2Fbrick_roughness.jpg?v=1593160043464" />
             <img crossorigin="anonymous" id="piso" src="assets/piso.jpg" />
             <img crossorigin="anonymous" id="piso-normal" src="assets/piso-rugosidade.jpg" />
+            <img crossorigin="anonymous" id="background" src="https://cdn.glitch.com/da3c70f2-15da-4ad6-b1fb-c32a564dfafc%2Fgreen-hills-over-town.jpg?v=1618930227685"/>
         </a-assets>
+
+        <a-sky src="#background"></a-sky>
 
         <!-- Camera -->
         <a-entity id="camera" position="0 1.6 4" camera look-controls wasd-controls></a-entity>
