@@ -37,5 +37,5 @@ function eventosTeclado() {
 
 function alternarLuz(id) {
     var luz = document.getElementById(id);
-    luz.setAttribute('light', 'intensity', luz.getAttribute('light').intensity > 0 ? 0 : 1);
+    luz.setAttribute('light', 'intensity', luz.getAttribute('light').intensity > 0 ? 0 : 0.3);
 }
