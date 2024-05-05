@@ -8,32 +8,19 @@
 
 <body>
     <a-scene luzes fog="type: linear; color: #AAA; near: 1; far: 1000;" shadow="type: pcfsoft">
-        <a-light type="ambient" color="#888"></a-light>
+        <a-light type="ambient" color="#888" intensity="0.2"></a-light>
 
-        <a-entity id="jardim" position="10 0 0">
-            <a-plane position="0 -0.01 0" rotation="-90 0 0" width="80" height="80"
-                material="src: assets/grama.jpg; repeat: 100 100; roughness: 1"></a-plane>
-
-            <a-box position="1 0.5 1" depth="0.5" height="1" width="0.5" color="blue"></a-box>
-            <a-cylinder position="2 0.75 2" height="1.5" radius="0.5" color="yellow"></a-cylinder>
-            <a-box position="-1 0.5 -1" depth="0.5" height="1" width="0.5" color="red"></a-box>
-
-            <a-sphere position="0 0.3 0" radius="0.3" color="#B2B2B2"></a-sphere>
-        </a-entity>
-
-
-        <!-- <a-entity id="chao">
-            <a-plane position="0 0 0" rotation="-90 0 0" width="50" height="50" material="src: #piso; normal-map: #piso-normal; normal-texture-repeat: 10 10; roughness: 1; metalness: 0" shadow>
-            </a-plane>
-        </a-entity> -->
-
+        <!-- Objetos e imagens -->
         <a-assets>
             <img crossorigin="anonymous" id="brick" src="assets/parede-interna.jpg" />
             <img crossorigin="anonymous" id="brick" src="assets/parede-interna.jpg" />
             <img crossorigin="anonymous" id="piso" src="assets/piso.jpg" />
             <img crossorigin="anonymous" id="piso-normal" src="assets/piso-rugosidade.jpg" />
-            <img crossorigin="anonymous" id="eternit" src="assets/telha.jpg" />
+            <img crossorigin="anonymous" id="telha" src="assets/telha.jpg" />
             <img crossorigin="anonymous" id="forro" src="assets/forro.jpeg" />
+            <img crossorigin="anonymous" id="background" src="assets/background.jpg" />
+            <img id="moonTexture" src="assets/lua.jpg" crossorigin="anonymous"/>
+
             <a-asset-item id="toilet-model" src="assets/toilet.glb"></a-asset-item>
             <a-asset-item id="toilet-paper-model" src="assets/toilet_paper_dispenser.glb"></a-asset-item>
             <a-asset-item id="shower-cabin-model" src="assets/shower_cabin.glb"></a-asset-item>
@@ -45,65 +32,74 @@
             <a-asset-item id="rug-model" src="assets/rug.glb"></a-asset-item>
             <a-asset-item id="tv-stand-model" src="assets/tv_stand.glb"></a-asset-item>
             <a-asset-item id="modern-sofa-model" src="assets/modern__sofa.glb"></a-asset-item>
+            <a-asset-item id="bed-model" src="assets/bed.glb"></a-asset-item>
+            <a-asset-item id="bed-secundary-model" src="assets/bed2.glb"></a-asset-item>
 
-
-            <img crossorigin="anonymous" id="background" src="assets/background.jpg" />
         </a-assets>
 
+        <!-- Backgroud -->
         <a-sky src="#background"></a-sky>
 
+        <a-sphere id="moon" position="-50 40 -100" radius="5" material="src: #moonTexture; emissive: #fff; emissiveIntensity: 0.5"></a-sphere>
+        <a-light type="directional" position="-50 40 -100" target="#center" intensity="0.3" color="#e0e0ff" castShadow="true"></a-light>
+        <a-entity id="center" position="0 0 0"></a-entity>
+
+        <a-entity id="jardim" position="10 0 0">
+            <a-plane position="0 -0.01 0" rotation="-90 0 0" width="80" height="80"
+                material="src: assets/grama.jpg; repeat: 100 100; roughness: 1"></a-plane>
+
+            <a-box position="1 0.5 1" depth="0.5" height="1" width="0.5" color="blue" material="roughness: 1"></a-box>
+            <a-cylinder position="2 0.75 2" height="1.5" radius="0.5" color="yellow" material="roughness: 1"></a-cylinder>
+            <a-box position="-1 0.5 -1" depth="0.5" height="1" width="0.5" color="red" material="roughness: 1"></a-box>
+            <a-sphere position="0 0.3 0" radius="0.3" color="#B2B2B2" material="roughness: 1"></a-sphere>
+        </a-entity>
+
         <!-- Camera -->
-        <a-entity id="camera" position="0 1.6 4" camera look-controls wasd-controls></a-entity>
+        <a-entity id="camera" position="0 1.6 0" camera look-controls wasd-controls></a-entity>
 
         <!-- Luzes -->
         <a-entity id="luztreQuartoMenor" position="0 2.5 0">
             <a-light id="luzQuartoMenor" type="point" intensity="0" color="#ccc" castShadow="true"></a-light>
             <a-sphere position="0 0.5 0" radius="0.25" color="#ccc"
-                material="emissive: #ccc; emissiveIntensity: 0.2"></a-sphere>
+                material="emissive: #ccc; emissiveIntensity: 0.3"></a-sphere>
         </a-entity>
 
         <a-entity id="luztreQuartoMaior" position="5 2.5 0">
             <a-light id="luzQuartoMaior" type="point" intensity="0" color="#ccc" castShadow="true"></a-light>
             <a-sphere position="0 0.5 0" radius="0.25" color="#ccc"
-                material="emissive: #ccc; emissiveIntensity: 0.2"></a-sphere>
+                material="emissive: #ccc; emissiveIntensity: 0.3"></a-sphere>
         </a-entity>
 
         <a-entity id="luztreBanheiro" position="1 2.5 -3.5">
             <a-light id="luzBanheiro" type="point" intensity="0" color="#ccc" castShadow="true"></a-light>
             <a-sphere position="0 0.5 0" radius="0.25" color="#ccc"
-                material="emissive: #ccc; emissiveIntensity: 0.2"></a-sphere>
+                material="emissive: #ccc; emissiveIntensity: 0.3"></a-sphere>
         </a-entity>
 
         <a-entity id="luztreCozinha" position="-5 2.5 -5">
             <a-light id="luzCozinha" type="point" intensity="0" color="#ccc" castShadow="true"></a-light>
             <a-sphere position="0 0.5 0" radius="0.25" color="#ccc"
-                material="emissive: #ccc; emissiveIntensity: 0.2"></a-sphere>
+                material="emissive: #ccc; emissiveIntensity: 0.3"></a-sphere>
         </a-entity>
 
         <a-entity id="luztreEntrada" position="-5 2.5 0">
             <a-light id="luzEntrada" type="point" intensity="0" color="#ccc" castShadow="true"></a-light>
             <a-sphere position="0 0.5 0" radius="0.25" color="#ccc"
-                material="emissive: #ccc; emissiveIntensity: 0.2"></a-sphere>
+                material="emissive: #ccc; emissiveIntensity: 0.3"></a-sphere>
         </a-entity>
 
         <a-entity id="luztreJardim" position="8 2.5 3">
             <a-light id="luzJardim" type="point" intensity="0" color="#ccc" castShadow="true"></a-light>
             <a-plane position="0 0.49 0" height="0.2" width="0.2" rotation="90 0 0" color="#ccc"
-                material="emissive: #ccc; emissiveIntensity: 0.2"></a-plane>
+                material="emissive: #ccc; emissiveIntensity: 0.3"></a-plane>
+
         </a-entity>
 
         <!-- casa -->
-
         <a-entity id="casa">
-
-            <!-- estrutura externa (paredes externas) -->
-            <!-- <a-entity id="estrutura">
-                <a-box position="0 0 0" depth="50" height="20" width="50" color="#A0522D"></a-box>
-            </a-entity> -->
-
             <!-- parede quarto visita -->
             <a-entity class="parede" position="0 1.5 2.5" rotation="0 0 0">
-                <a-box scale="5 3 0.1" shadow material="src: #brick;
+                <a-box scale="5 3 0.1" shadow="receive: true" material="src: #brick;
                       repeat: 2.5 2;
                       roughness-map: #brick-roughness;
                       roughnessTextureRepeat: 2.5 2;
@@ -114,7 +110,7 @@
 
             <!-- parede quarto visita -->
             <a-entity class="parede" position="2.5 1.5 0" rotation="0 90 0">
-                <a-box scale="5 3 0.1" shadow material="src: #brick;
+                <a-box scale="5 3 0.1" shadow="receive: true" material="src: #brick;
                             repeat: 2.5 2;
                             roughness-map: #brick-roughness;
                             roughnessTextureRepeat: 2.5 2;
@@ -125,7 +121,7 @@
 
             <!-- parede quarto visita -->
             <a-entity class="parede" position="0 1.5 -2.5" rotation="0 0 0">
-                <a-box scale="5 3 0.1" shadow material="src: #brick;
+                <a-box scale="5 3 0.1" shadow="receive: true" material="src: #brick;
                             repeat: 2.5 2;
                             roughness-map: #brick-roughness;
                             roughnessTextureRepeat: 2.5 2;
@@ -135,7 +131,7 @@
             </a-entity>
 
             <!-- parede com porta quarto visita -->
-            <a-entity class="parede-com-porta" shadow>
+            <a-entity class="parede-com-porta" shadow="receive: true">
                 <a-box position="-2.5 2.5 0" rotation="0 90 0" scale="5 1 0.1" material="src: #brick;
                       repeat: 2.5 0.5; 
                       roughness-map: #brick-roughness; 
@@ -175,7 +171,7 @@
 
             <!-- parede quarto principal -->
             <a-entity class="parede" position="5 1.5 2.5" rotation="0 0 0">
-                <a-box scale="5 3 0.1" shadow material="src: #brick;
+                <a-box scale="5 3 0.1" shadow="receive: true" material="src: #brick;
                       repeat: 2.5 2;
                       roughness-map: #brick-roughness;
                       roughnessTextureRepeat: 2.5 2;
@@ -185,7 +181,7 @@
             </a-entity>
             <!-- parede quarto principal -->
             <a-entity class="parede" position="7.5 1.5 0" rotation="0 90 0">
-                <a-box scale="5 3 0.1" shadow material="src: #brick;
+                <a-box scale="5 3 0.1" shadow="receive: true" material="src: #brick;
                             repeat: 2.5 2;
                             roughness-map: #brick-roughness;
                             roughnessTextureRepeat: 2.5 2;
@@ -195,7 +191,7 @@
             </a-entity>
 
             <!-- parede com porta quarto principal -->
-            <a-entity class="parede-com-porta" shadow>
+            <a-entity class="parede-com-porta" shadow="receive: true">
                 <a-box position="5 2.5 -2.5" rotation="0 180 0" scale="5 1 0.1" material="src: #brick;
                       repeat: 2.5 0.5; 
                       roughness-map: #brick-roughness; 
@@ -236,7 +232,7 @@
 
             <!-- parede sala -->
             <a-entity class="parede" position="7.5 1.5 -5" rotation="0 90 0">
-                <a-box scale="5 3 0.1" shadow material="src: #brick;
+                <a-box scale="5 3 0.1" shadow="receive: true" material="src: #brick;
                             repeat: 2.5 2;
                             roughness-map: #brick-roughness;
                             roughnessTextureRepeat: 2.5 2;
@@ -247,7 +243,7 @@
 
             <!-- parede sala -->
             <a-entity class="parede" position="5 1.5 -7.5" rotation="0 0 0">
-                <a-box scale="5 3 0.1" shadow material="src: #brick;
+                <a-box scale="5 3 0.1" shadow="receive: true" material="src: #brick;
                             repeat: 2.5 2;
                             roughness-map: #brick-roughness;
                             roughnessTextureRepeat: 2.5 2;
@@ -258,7 +254,7 @@
 
             <!-- parede sala -->
             <a-entity class="parede" position="0 1.5 -7.5" rotation="0 0 0">
-                <a-box scale="5 3 0.1" shadow material="src: #brick;
+                <a-box scale="5 3 0.1" shadow="receive: true" material="src: #brick;
                             repeat: 2.5 2;
                             roughness-map: #brick-roughness;
                             roughnessTextureRepeat: 2.5 2;
@@ -269,7 +265,7 @@
 
             <!-- parede banheiro -->
             <a-entity class="parede" position="2.5 1.5 -3.5" rotation="0 90 0">
-                <a-box scale="2.1 3 0.1" shadow material="src: #brick;
+                <a-box scale="2.1 3 0.1" shadow="receive: true" material="src: #brick;
                             repeat: 2.5 2;
                             roughness-map: #brick-roughness;
                             roughnessTextureRepeat: 2.5 2;
@@ -281,7 +277,7 @@
 
             <!-- parede banheiro -->
             <a-entity class="parede" position="1 1.5 -4.5" rotation="0 0 0">
-                <a-box scale="3 3 0.1" shadow material="src: #brick;
+                <a-box scale="3 3 0.1" shadow="receive: true" material="src: #brick;
                             repeat: 2.5 2;
                             roughness-map: #brick-roughness;
                             roughnessTextureRepeat: 2.5 2;
@@ -291,7 +287,7 @@
             </a-entity>
 
             <!-- parede porta banheiro -->
-            <a-entity class="parede-com-porta" shadow>
+            <a-entity class="parede-com-porta" shadow="receive: true">
                 <a-box scale="0.5 3 0.1" rotation="0 90 0" position="-0.5 1.5 -4.3" shadow material="src: #brick;
                             repeat: 2.5 2;
                             roughness-map: #brick-roughness;
@@ -317,7 +313,7 @@
 
             <!-- parede cozinha (passou do banheiro é cozinha e não mais sala) -->
             <a-entity class="parede" position="-5 1.5 -7.5" rotation="0 0 0">
-                <a-box scale="5 3 0.1" shadow material="src: #brick;
+                <a-box scale="5 3 0.1" shadow="receive: true" material="src: #brick;
                             repeat: 2.5 2;
                             roughness-map: #brick-roughness;
                             roughnessTextureRepeat: 2.5 2;
@@ -328,7 +324,7 @@
 
             <!-- parede cozinha (passou do banheiro é cozinha e não mais sala) -->
             <a-entity class="parede" position="-7.5 1.5 -5" rotation="0 90 0">
-                <a-box scale="5 3 0.1" shadow material="src: #brick;
+                <a-box scale="5 3 0.1" shadow="receive: true" material="src: #brick;
                             repeat: 2.5 2;
                             roughness-map: #brick-roughness;
                             roughnessTextureRepeat: 2.5 2;
@@ -339,7 +335,7 @@
 
             <!-- parede cozinha (passou do banheiro é cozinha e não mais sala) -->
             <a-entity class="parede" position="-5 1.5 2.5" rotation="0 0 0">
-                <a-box scale="5 3 0.1" shadow material="src: #brick;
+                <a-box scale="5 3 0.1" shadow="receive: true" material="src: #brick;
                             repeat: 2.5 2;
                             roughness-map: #brick-roughness;
                             roughnessTextureRepeat: 2.5 2;
@@ -349,7 +345,7 @@
             </a-entity>
 
             <!-- parede com porta cozinha/entrada da casa -->
-            <a-entity class="parede-com-porta" shadow>
+            <a-entity class="parede-com-porta" shadow="receive: true">
                 <a-box position="-7.5 2.5 0" rotation="0 90 0" scale="5 1 0.1" material="src: #brick;
                       repeat: 2.5 0.5; 
                       roughness-map: #brick-roughness; 
@@ -392,7 +388,7 @@
                     src: #piso;
                     normal-texture-repeat: 2.5 2.5;
                     roughness: 1;
-                    metalness: 0" shadow>
+                    metalness: 0" shadow="receive: true">
                     </a-plane>
                 </a-entity>
                 <a-entity id="chao">
@@ -400,7 +396,7 @@
                     src: #piso;
                     normal-texture-repeat: 2.5 2.5;
                     roughness: 1;
-                    metalness: 0" shadow>
+                    metalness: 0" shadow="receive: true">
                     </a-plane>
                 </a-entity>
                 <a-entity id="chao">
@@ -408,7 +404,7 @@
                     src: #piso;
                     normal-texture-repeat: 2.5 2.5;
                     roughness: 1;
-                    metalness: 0" shadow>
+                    metalness: 0" shadow="receive: true">
                     </a-plane>
                 </a-entity>
                 <a-entity id="chao">
@@ -416,7 +412,7 @@
                     src: #piso;
                     normal-texture-repeat: 2.5 2.5;
                     roughness: 1;
-                    metalness: 0" shadow>
+                    metalness: 0" shadow="receive: true">
                     </a-plane>
                 </a-entity>
                 <a-entity id="chao">
@@ -424,7 +420,7 @@
                     src: #piso;
                     normal-texture-repeat: 2.5 2.5;
                     roughness: 1;
-                    metalness: 0" shadow>
+                    metalness: 0" shadow="receive: true">
                     </a-plane>
                 </a-entity>
                 <a-entity id="chao">
@@ -432,7 +428,7 @@
                     src: #piso;
                     normal-texture-repeat: 2.5 2.5;
                     roughness: 1;
-                    metalness: 0" shadow>
+                    metalness: 0" shadow="receive: true">
                     </a-plane>
                 </a-entity>
 
@@ -469,18 +465,22 @@
                 <!-- quarto principal -->
                 <a-entity class="door-asset" scale="0.5 0.40 0.5" rotation="0 0 0" position="6.35 0 -2.58"
                     gltf-model="#door-model"> </a-entity>
+                <a-entity class="bed-asset" scale="0.0055 0.0055 0.0055" rotation="0 90 0" position="4.2 0 -0.15"
+                    gltf-model="#bed-model"> </a-entity>
 
                 <!-- quarto secundario -->
                 <a-entity class="door-asset" scale="0.4 0.40 0.4" rotation="0 90 0" position="-2.55 0 -1.5"
                     gltf-model="#door-model"> </a-entity>
-
+                <a-entity class="bed-secundary-asset" scale="1.3 1.3 1.3" rotation="0 180 0" position="0 0 1.25"
+                    gltf-model="#bed-secundary-model"> </a-entity>
 
             </a-entity>
 
-            <a-plane position="0 2.99 -2.5" rotation="90 0 0" width="15" height="10"
-                material="src: #forro; repeat: 10 10; metalness:0.1; roughness: 1; side: double;"></a-plane>
-            <a-plane position="0 3 -2.5" rotation="90 0 0" width="18" height="12"
-                material="src: #eternit; repeat: 10 10; metalness:0.1; roughness: 1; side: double;"></a-plane>
+            <!-- Telhado -->
+            <a-plane position="0 2.99 -2.5" rotation="90 0 0" width="15" height="10" material="src: #forro; repeat: 10 10; 
+                    metalness:0.1; roughness: 1; side: double;"></a-plane>
+            <a-plane position="0 3 -2.5" rotation="90 0 0" width="18" height="12" material="src: #telha; repeat: 10 10; 
+                    metalness:0.1; roughness: 1; side: double;"></a-plane>
 
         </a-entity>
     </a-scene>
