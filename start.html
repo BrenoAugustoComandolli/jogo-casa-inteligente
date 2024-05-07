@@ -2,7 +2,8 @@
 <html>
 
 <head>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
     <script src="scripts/luzes-eventos.js"></script>
 </head>
 
@@ -11,7 +12,14 @@
         <a-light type="ambient" color="#888" intensity="0.2"></a-light>
 
         <!-- Camera -->
-        <a-entity id="camera" position="16 1.6 1.5" camera look-controls wasd-controls></a-entity>
+        <a-entity class="player" id="player"
+            camera
+            jump-ability
+            universal-controls
+            kinematic-body
+            look-controls
+            position="1 4 2">
+        </a-entity>
 
         <!-- Objetos e imagens -->
         <a-assets>
@@ -57,10 +65,11 @@
 
         <!-- Terreno com jardim -->
         <a-entity id="jardim" position="10 0 0">
-            <a-plane position="0 -0.01 0" rotation="-90 0 0" width="80" height="80"
+            <a-plane static-body position="0 -0.01 0" rotation="-90 0 0" width="80" height="80"
                 material="src: assets/grama.jpg; repeat: 100 100; roughness: 1"></a-plane>
 
-            <a-sphere position="10 0.3 3" radius="0.3" color="yellow" material="roughness: 1"></a-sphere>
+            <a-sphere dynamic-body position="10 0.3 3" radius="0.3" color="yellow" material="roughness: 1" mass="1"></a-sphere>
+            <a-cylinder id="cylinder" static-body position="12 0.3 3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
 
             <!-- casa -->
             <a-entity id="casa">
